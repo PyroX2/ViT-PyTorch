@@ -205,7 +205,6 @@ def main():
 
     # Load a pre-trained ViT model and feature extractor
     model_name = 'google/vit-large-patch16-384'
-    feature_extractor = ViTFeatureExtractor.from_pretrained(model_name)
     model = ViTForImageClassification.from_pretrained(
         model_name, 
         attn_implementation='eager'
@@ -214,7 +213,7 @@ def main():
     model.to(device)
 
     criterion = torch.nn.CrossEntropyLoss()
-    optimizer = torch.optim.Adam(model.parameters())
+    optimizer = torch.optim.Adam(model.parameters(), lr=1e-4)
 
     train(model, train_loader, val_loader, criterion, optimizer, 100, early_stop_patience=early_stop_patience)
 
