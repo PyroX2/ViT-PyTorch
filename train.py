@@ -191,7 +191,8 @@ def main():
     # Dataset preparation
     transform = v2.Compose([
         v2.Resize((384, 384)),
-        v2.ToTensor()
+        v2.ToTensor(),
+        v2.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
     ])
 
     train_ds = ImageFolder(os.path.join(dataset_path, "train/multiclass"), transform=transform)
