@@ -1,0 +1,11 @@
+torch
+torchvision
+transformers
+matplotlib
+numpy
+ipykernel
+pillow
+tqdm
+tensorboard
+jupyter
+opencv-python
